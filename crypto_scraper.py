@@ -82,7 +82,7 @@ class ByBit_Scraper:
 
     def set_dataframe(self, dataframe):
         self.dataframe = dataframe
-        
+
         if not self.dataframe.empty:
             self.symbol = dataframe['symbol'].iloc[0]
             self.timeframe = dataframe['period'].iloc[0]
@@ -95,6 +95,6 @@ class ByBit_Scraper:
         print("Creating .csv file ...")
 
         if path:
-            self.dataframe.to_csv(path)
+            self.dataframe.to_csv(path, index = False)
         else:
-            self.dataframe.to_csv(f"{self.symbol} {self.timeframe}.csv")
+            self.dataframe.to_csv(f"{self.symbol} {self.timeframe}.csv", index = False)
