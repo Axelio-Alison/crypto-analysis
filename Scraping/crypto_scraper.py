@@ -63,8 +63,13 @@ class ByBit_Scraper:
             from_time = self.dataframe['start_at'].iloc[-1] + 60*self.timeframe,
             limit = 200
             )['result']
-
+            
             hist_df = pd.DataFrame(hist_data)
+
+            if hist_df.empty:
+                if logs: print(f"{self.symbol} is already Updated ...")
+                break
+            
             hist_df.insert(3, 'datetime', pd.to_datetime(hist_df['start_at'], unit = 's'))
 
             # print(hist_df)
