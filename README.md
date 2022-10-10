@@ -8,3 +8,8 @@ This little project was created to demonstrate how to perform an analysis of a c
 
 ## Data Scraping
 Using the **Bybit API** and the [**pybit module**](https://pypi.org/project/pybit/) you can extract all the historical data of the selected pair, from the moment it was listed on the exchange until today, you can also choose the _extraction timeframe_. We will be able to do this important task with **_crypto_scraper.py_** file and you can see an application example in the **_example.py_** file (both the files are in the Scraping folder).
+```
+# An example of data extraction
+bybit_scr = cs.ByBit_Scraper(session)
+bybit_scr.extract_history("BTCUSDT", 15)
+```
